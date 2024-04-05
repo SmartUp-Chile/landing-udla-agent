@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDLA | Agente Contact Center</title>
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background-image: url(./img/campus-providencia.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        main {
+            padding: 20px;
+            height: calc(100% - 160px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        footer {
+            background-color: #ff5200;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        p {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        iframe {
+            width: 70%;
+            height: 100%;
+            border: none;
+        }
+
+        @media only screen and (max-width: 600px) {
+            iframe {
+                width: 90%;
+            }
+        }
+
+        .hidden {
+            display: none; 
+        }
+        .login-card {
+            position: fixed; /* Posiciona la card sobre el resto del contenido */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Asegura que la card esté por encima de otros elementos */
+        }
+        .login-form {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="./img/logo-udla.svg" alt="UDLA">
+    </header>
+
+    <main>
+        <!-- Card de Login que cubre el iframe -->
+        <div id="loginCard" class="login-card hidden">
+            <div class="login-form">
+                <h2>Iniciar Sesión</h2>
+                <input type="text" id="username" placeholder="Usuario" required>
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <button onclick="login()">Iniciar Sesión</button>
+            </div>
+        </div>
+        
+        <!-- Iframe del agente -->
+        <iframe id="agentIframe" src="https://www.smartup.lat/agente/udity--contact-center?mode=iframe" frameborder="0"></iframe>
+    </main>
+
+    <footer>
+        <p>Universidad de las Américas &copy; 2024</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Añade el event listener a ambos campos de entrada
+            document.getElementById('username').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    login();
+                }
+            });
+    
+            document.getElementById('password').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    login();
+                }
+            });
+        });
+    
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // Simulación de la verificación de las credenciales
+            if (password === '123456') { // Asegúrate de que estas condiciones se cumplan para el caso de prueba
+                // Si las credenciales son correctas, oculta la card de login
+                document.getElementById('loginCard').classList.add('hidden');
+                console.log("a")
+            } else {
+                alert('Usuario o contraseña incorrectos');
+            }
+        }
+    </script>
+</body>
+
+</html>
