@@ -65,7 +65,7 @@
         }
 
         .hidden {
-            display: none; 
+            display: none !important;
         }
         .login-card {
             position: fixed; /* Posiciona la card sobre el resto del contenido */
@@ -95,7 +95,7 @@
 
     <main>
         <!-- Card de Login que cubre el iframe -->
-        <div id="loginCard" class="login-card hidden">
+        <div id="loginCard" class="login-card">
             <div class="login-form">
                 <h2>Iniciar Sesión</h2>
                 <input type="text" id="username" placeholder="Usuario" required>
