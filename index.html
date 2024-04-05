@@ -56,12 +56,45 @@
             width: 70%;
             height: 100%;
             border: none;
+            border-radius: 21px;
         }
 
         @media only screen and (max-width: 600px) {
             iframe {
                 width: 90%;
             }
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%; /* Ajusta al contenedor */
+            padding: 10px; /* Espacio interno */
+            margin: 8px 0; /* Espacio externo */
+            display: inline-block; /* Alineación */
+            border: 1px solid #ccc; /* Borde */
+            border-radius: 4px; /* Bordes redondeados */
+            box-sizing: border-box; /* El padding y border se incluyen en el ancho total */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Sombreado ligero */
+            transition: border-color 0.3s; /* Transición suave del color del borde */
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #4A90E2; /* Color del borde al enfocar */
+            outline: none; /* Elimina el outline predeterminado */
+        }
+
+        button {
+            background-color: #f9941f; /* Color de fondo */
+            color: white; /* Color del texto */
+            padding: 14px 20px; /* Espacio interno */
+            margin: 8px 0; /* Espacio externo */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor a una mano */
+            transition: background-color 0.3s; /* Transición suave del color de fondo */
+        }
+
+        button:hover {
+            background-color: #db882f; /* Color de fondo al pasar el mouse */
         }
 
         .hidden {
@@ -73,7 +106,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparente */
+            background-color: rgba(255, 255, 255, 0.699); /* Semi-transparente */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -81,8 +114,8 @@
         }
         .login-form {
             padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
+            background-color: #f9d3a7;
+            border-radius: 21px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
     </style>
@@ -97,7 +130,6 @@
         <!-- Card de Login que cubre el iframe -->
         <div id="loginCard" class="login-card">
             <div class="login-form">
-                <h2>Iniciar Sesión</h2>
                 <input type="text" id="username" placeholder="Usuario" required>
                 <input type="password" id="password" placeholder="Contraseña" required>
                 <button onclick="login()">Iniciar Sesión</button>
